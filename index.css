@@ -1,3 +1,7 @@
 .Icon {
   display: inline-block;
 }
+
+.icon {
+  /* TODO this is the new BEM class for the background-mode icons. */
+}

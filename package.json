@@ -72,6 +72,8 @@
     "test:watch": "npm run test:base -- -wR min"
   },
   "dependencies": {
+    "postcss": "^4.0.0",
+    "postcss-svg": "^1.0.1",
     "react": "^0.13.3"
   },
   "devDependencies": {
