@@ -1,5 +1,5 @@
 node_modules/
 *.log
 *.js
-assets/
-.DS_Store
+bundle.css
+*.html
