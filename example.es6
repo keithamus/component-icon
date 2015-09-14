@@ -93,64 +93,64 @@ export default (
       To use this you need to add <code>@import "@economist/component-icon/backgrounds/ICONNAME.css";</code>
       to your postCSS.
     </p>
-    <span className=".icon .icon--facebook">
+    <span className="icon icon--facebook">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--twitter">
+    <span className="icon icon--twitter">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--googleplus">
+    <span className="icon icon--googleplus">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--linkedin">
+    <span className="icon icon--linkedin">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--whatsapp">
+    <span className="icon icon--whatsapp">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--mail">
+    <span className="icon icon--mail">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--rss">
+    <span className="icon icon--rss">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--down">
+    <span className="icon icon--down">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--up">
+    <span className="icon icon--up">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--right">
+    <span className="icon icon--right">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--left">
+    <span className="icon icon--left">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--close">
+    <span className="icon icon--close">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--worldif">
+    <span className="icon icon--worldif">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--home">
+    <span className="icon icon--home">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--hamburger">
+    <span className="icon icon--hamburger">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--user">
+    <span className="icon icon--user">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--magnifier">
+    <span className="icon icon--magnifier">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--share">
+    <span className="icon icon--share">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--economist-small">
+    <span className="icon icon--economist-small">
       Text for a11y and SEO purposes.
     </span>
-    <span className=".icon .icon--economist">
+    <span className="icon icon--economist">
       Text for a11y and SEO purposes.
     </span>
   </div>

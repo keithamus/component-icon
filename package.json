@@ -104,7 +104,7 @@
     "ci": "./build.sh",
     "clean-svg": "svgo --pretty --config=.svgo.yml -f icons -o icons",
     "doc": "parallelshell 'npm run doc:html' 'npm run doc:js' 'npm run doc:css'",
-    "doc:css": "cssnext example.css bundle.css",
+    "doc:css": "cssnext index.css > bundle.css && cssnext example.css >> bundle.css",
     "doc:css:watch": "npm run doc:css -- --watch",
     "doc:html": "devpack-doc index standalone",
     "doc:html:watch": "npm-watch",
