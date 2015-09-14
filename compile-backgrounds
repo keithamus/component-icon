@@ -11,7 +11,7 @@ function makePostCSS() {
       paths: [
         './icons/'
       ],
-      defaults: "[fill]: #000000",
+      defaults: '',
       silent: false,
       func: 'svg',
     })
