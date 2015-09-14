@@ -1,16 +1,16 @@
 {
   "name": "@economist/component-icon",
   "version": "3.2.0",
-  "description": "Provides SVG icons images",
+  "description": "Provides SVG icons images, and classes with SVG background-images.",
   "author": "The Economist (http://economist.com)",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/the-economist-editorial/icon.git"
+    "url": "git+ssh://git@github.com/economist-components/component-icon.git"
   },
-  "homepage": "https://github.com/the-economist-editorial/icon#readme",
+  "homepage": "https://github.com/economist-components/component-icon#readme",
   "bugs": {
-    "url": "https://github.com/the-economist-editorial/icon/issues"
+    "url": "https://github.com/economist-components/component-icon/issues"
   },
   "main": "index.js",
   "files": [
