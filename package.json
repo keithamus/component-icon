@@ -100,7 +100,7 @@
     "ghpages_files": "*.html *.css *.js assets/"
   },
   "scripts": {
-    "build": "svg-sprite -l \"verbose\" --symbol-dest assets/ --ss icons.svg -s icons/*",
+    "build": "./compile-backgrounds && svg-sprite -l \"verbose\" --symbol-dest assets/ --ss icons.svg -s icons/*",
     "ci": "./build.sh",
     "clean-svg": "svgo --pretty --config=.svgo.yml -f icons -o icons",
     "doc": "parallelshell 'npm run doc:html' 'npm run doc:js' 'npm run doc:css'",
