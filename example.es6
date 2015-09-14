@@ -90,9 +90,12 @@ export default (
     />
     <h1>Icons in background-image mode (IE: no extra svg download)</h1>
     <p>
-      To use this you need to add <code>@import "@economist/component-icon/backgrounds/ICONNAME.css";</code>
+      To use this you need to add
+      <code>@import "@economist/component-icon";</code> and
+      <code>@import "@economist/component-icon/backgrounds/ICONNAME.css";</code>
       to your postCSS.
     </p>
+    <p>Then, use the <code>.icon .icon--ICONNAME</code> classes on any element.</p>
     <span className="icon icon--facebook">
       Text for a11y and SEO purposes.
     </span>
@@ -153,5 +156,71 @@ export default (
     <span className="icon icon--economist">
       Text for a11y and SEO purposes.
     </span>
+
+    <h2>Ok, now in London color</h2>
+    <p>(The classnames now are <code>.icon-ICONNAME-COLORNAME</code>)</p>
+    <p>Developer note: To add color variations, you need to edit color-variations.json</p>
+    <div style={{ background: '#333' }}>
+      <span className="icon icon--facebook-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--twitter-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--googleplus-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--linkedin-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--whatsapp-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--mail-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--rss-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--down-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--up-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--right-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--left-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--close-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--worldif-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--home-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--hamburger-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--user-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--magnifier-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--share-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--economist-small-london">
+        Text for a11y and SEO purposes.
+      </span>
+      <span className="icon icon--economist-london">
+        Text for a11y and SEO purposes.
+      </span>
+    </div>
   </div>
 );

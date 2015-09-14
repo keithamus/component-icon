@@ -482,7 +482,7 @@ body {
   <body>
     <h1 class="component-title">
       @economist/component-icon
-      <span>(v3.1.0)</span>
+      <span>(v3.2.0)</span>
     </h1>
     <div id="component-preview">
       [object Object]
@@ -587,9 +587,12 @@ body {
     /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Icons in background-image mode (IE: no extra svg download)<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
-      To use this you need to add <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>@import "@economist/component-icon/backgrounds/ICONNAME.css";<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span>
+      To use this you need to add
+      <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>@import "@economist/component-icon";<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span> and
+      <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>@import "@economist/component-icon/backgrounds/ICONNAME.css";<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span>
       to your postCSS.
     <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Then, use the <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>.icon .icon--ICONNAME<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span> classes on any element.<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--facebook"</span>&gt;</span>
       Text for a11y and SEO purposes.
     <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
@@ -650,6 +653,72 @@ body {
     <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--economist"</span>&gt;</span>
       Text for a11y and SEO purposes.
     <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>Ok, now in London color<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>(The classnames now are <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>.icon-ICONNAME-COLORNAME<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span>)</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Developer note: To add color variations, you need to edit color-variations.json<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">333</span>' }}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--facebook-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--twitter-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--googleplus-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--linkedin-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--whatsapp-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--mail-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--rss-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--down-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--up-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--right-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--left-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--close-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--worldif-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--home-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--hamburger-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--user-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--magnifier-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--share-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--economist-small-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--economist-london"</span>&gt;</span>
+        Text for a11y and SEO purposes.
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 )</span>;
 </pre></code>
