@@ -37,9 +37,8 @@ function generateSourceCSS(iconName) {
     ''.concat(className, ' {\n  background: svg("', iconName, '");\n}\n')
   );
 
-  source = source.concat(colorVariations.map(function(color) {
-    var colorName = color[0];
-    var colorHex = color[1];
+  source = source.concat(Object.keys(colorVariations).map(function(colorName) {
+    var colorHex = colorVariations[colorName];
     return ''.concat(
       className, '-', colorName, ' {\n',
       '  background: svg("', iconName, '", "[fill]: ', colorHex, '");\n',
