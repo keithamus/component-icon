@@ -491,6 +491,20 @@ body {
         <h2 class="component-panel-heading">Readme</h2>
         <h1 id="component-icon">component-icon</h1>
 <p>React component that provides SVG icons from a hardcoded set</p>
+<p>Includes a set of CSS backgrounds for rendering SVG, and color variations.</p>
+<h1 id="how-to-use-the-css-backgrounds">How to use the CSS backgrounds</h1>
+<p>To use this you need to add <code>@import &quot;@economist/component-icon&quot;;</code> and <code>@import &quot;@economist/component-icon/backgrounds/ICONNAME.css&quot;;</code> to your postCSS.</p>
+<p>Then, use the<code>.icon .icon--ICONNAME</code> classes on any element.</p>
+<h2 id="how-to-use-the-color-variations-">How to use the color variations?</h2>
+<p>By default, the background icons are black.</p>
+<p>To use a color variation, add <code>-COLORNAME</code> to the class name. For example, <code>icon icon-facebook</code> would become <code>icon icon-facebook-london</code>. If that color variation is not there (we don&#39;t want to add them all at once!), you need to change this project and publish it again with the new color there.</p>
+<h2 id="i-m-a-developer-how-do-i-add-more-colors-">I&#39;m a developer. How do I add more colors?</h2>
+<p>Have a look at color-variations.json. Then, run the compile-backgrounds script to update the <code>backgrounds/*</code> file.</p>
+<h2 id="why-do-i-have-to-import-the-color-variation-from-the-same-file-as-the-original-icon-">Why do I have to import the color variation from the same file as the original icon?</h2>
+<p>(technical explanation)</p>
+<p>It doesn&#39;t make the CSS heavier this way.</p>
+<p>Gzip will deduplicate the color variation and the original, turning each variation into only a few more bytes than just the original. But only if they are close to each other. By forcing you to import both of them at the same time, I&#39;m forcing them to be together in the output CSS file and thus save a lot of space!</p>
+<p>This of course won&#39;t work if you encode the SVG in base64, so don&#39;t do it.</p>
 
       </div>
       <div class="component-panel">
@@ -500,7 +514,6 @@ body {
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Default values<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"facebook"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"twitter"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"googleplus"</span> /&gt;</span>
@@ -521,63 +534,65 @@ body {
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"share"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"economist-small"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"economist"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Overwrite<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"facebook"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">br</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"facebook"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"twitter"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"twitter"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"googleplus"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"googleplus"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"linkedin"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"linkedin"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"whatsapp"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"whatsapp"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"mail"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"mail"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"rss"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"rss"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"down"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"down"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"up"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"up"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"right"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"right"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"right"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"right"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"close"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"close"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"left"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"left"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"worldif"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"worldif"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"home"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"home"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"hamburger"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"hamburger"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"user"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"user"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"magnifier"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"magnifier"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"share"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"green"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"red"</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"share"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"economist-small"</span>
       <span class="hljs-attribute">background</span>=<span class="hljs-value">"white"</span>
@@ -585,14 +600,8 @@ body {
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"economist"</span> <span class="hljs-attribute">size</span>=<span class="hljs-value">"200px"</span>
       <span class="hljs-attribute">background</span>=<span class="hljs-value">"white"</span>
     /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Icons in background-image mode (IE: no extra svg download)<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
-      To use this you need to add
-      <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>@import "@economist/component-icon";<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span> and
-      <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>@import "@economist/component-icon/backgrounds/ICONNAME.css";<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span>
-      to your postCSS.
-    <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Then, use the <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>.icon .icon--ICONNAME<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span> classes on any element.<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Icons in a background-image<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--facebook"</span>&gt;</span>
       Text for a11y and SEO purposes.
     <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
@@ -647,16 +656,7 @@ body {
     <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--share"</span>&gt;</span>
       Text for a11y and SEO purposes.
     <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--economist-small"</span>&gt;</span>
-      Text for a11y and SEO purposes.
-    <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--economist"</span>&gt;</span>
-      Text for a11y and SEO purposes.
-    <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>Ok, now in London color<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>(The classnames now are <span class="hljs-tag">&lt;<span class="hljs-title">code</span>&gt;</span>.icon-ICONNAME-COLORNAME<span class="hljs-tag">&lt;/<span class="hljs-title">code</span>&gt;</span>)</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Developer note: To add color variations, you need to edit color-variations.json<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">background:</span> '#<span class="hljs-attribute">333</span>' }}&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--facebook-london"</span>&gt;</span>
         Text for a11y and SEO purposes.
@@ -710,12 +710,6 @@ body {
         Text for a11y and SEO purposes.
       <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--share-london"</span>&gt;</span>
-        Text for a11y and SEO purposes.
-      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--economist-small-london"</span>&gt;</span>
-        Text for a11y and SEO purposes.
-      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"icon icon--economist-london"</span>&gt;</span>
         Text for a11y and SEO purposes.
       <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
