@@ -27,12 +27,33 @@ var files = fs.readdirSync(__dirname + '/icons')
         .replace(/^.*?icons\//, '');
   });
 
+var colorVariations = require('./color-variations.json')
+
+function generateSourceCSS(iconName) {
+  var className = '.icon--' + iconName
+  var source = [];
+
+  source.push(
+    ''.concat(className, ' {\n  background: svg("', iconName, '");\n}\n')
+  );
+
+  source = source.concat(colorVariations.map(function(color) {
+    var colorName = color[0];
+    var colorHex = color[1];
+    return ''.concat(
+      className, '-', colorName, ' {\n',
+      '  background: svg("', iconName, '", "[fill]: ', colorHex, '");\n',
+      '}'
+    );
+  }));
+
+  return source.join('\n');
+}
+
 files.forEach(function(iname) {
-  var className = '.icon--' + iname
   var outName = 'backgrounds/' + iname + '.css'
   var css = makePostCSS()
-    .process(''.concat(
-        className,' {\n  background: svg("', iname, '");\n}'))
+    .process(generateSourceCSS(iname))
     .css
 
   console.log('Writing', outName)
