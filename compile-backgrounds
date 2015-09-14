@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+'use strict';
+
+var fs = require('fs');
+var postcss = require('postcss');
+var postcssSVG = require('postcss-svg');
+
+function makePostCSS() {
+  var processors = [
+    postcssSVG({
+      paths: [
+        './icons/'
+      ],
+      defaults: "[fill]: #000000",
+      silent: false,
+      func: 'svg',
+    })
+  ];
+
+  return postcss(processors);
+}
+
+var files = fs.readdirSync(__dirname + '/icons')
+  .map(function removeSvgExt(fname) {
+    return fname
+        .replace(/\.svg$/, '')
+        .replace(/^.*?icons\//, '');
+  });
+
+files.forEach(function(iname) {
+  var className = '.icon--' + iname
+  var outName = 'backgrounds/' + iname + '.css'
+  var css = makePostCSS()
+    .process(''.concat(
+        className,' {\n  background: svg("', iname, '");\n}'))
+    .css
+
+  console.log('Writing', outName)
+  fs.writeFileSync(outName, css)
+});
+
