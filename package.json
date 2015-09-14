@@ -16,6 +16,7 @@
   "files": [
     "*.js",
     "example.es6",
+    "index.es6",
     "*.css",
     "assets/*",
     "backgrounds/*",
