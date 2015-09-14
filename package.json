@@ -15,6 +15,7 @@
   "main": "index.js",
   "files": [
     "*.js",
+    "example.es6",
     "*.css",
     "assets/*",
     "backgrounds/*",
