@@ -158,7 +158,7 @@ export default (
     <h2>Ok, now in London color</h2>
     <p>(The classnames now are <code>.icon-ICONNAME-COLORNAME</code>)</p>
     <p>Developer note: To add color variations, you need to edit color-variations.json</p>
-    <div style={{ background: 'gray' }}>
+    <div style={{ background: '#333' }}>
       <span className="icon icon--facebook-london">
         Text for a11y and SEO purposes.
       </span>
