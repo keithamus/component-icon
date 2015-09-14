@@ -90,7 +90,9 @@ export default (
     />
     <h1>Icons in background-image mode (IE: no extra svg download)</h1>
     <p>
-      To use this you need to add <code>@import "@economist/component-icon/backgrounds/ICONNAME.css";</code>
+      To use this you need to add
+      <code>@import "@economist/component-icon";</code> and
+      <code>@import "@economist/component-icon/backgrounds/ICONNAME.css";</code>
       to your postCSS.
     </p>
     <p>Then, use the <code>.icon .icon--ICONNAME</code> classes on any element.</p>
