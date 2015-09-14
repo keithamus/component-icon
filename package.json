@@ -1,6 +1,6 @@
 {
   "name": "@economist/component-icon",
-  "version": "3.2.2",
+  "version": "3.2.5",
   "description": "Provides SVG icons images, and classes with SVG background-images.",
   "author": "The Economist (http://economist.com)",
   "license": "ISC",
@@ -15,8 +15,8 @@
   "main": "index.js",
   "files": [
     "*.js",
-    "example.css",
     "*.css",
+    "*.es6",
     "assets/*",
     "backgrounds/*",
     "!karma.conf.js",
