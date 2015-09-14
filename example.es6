@@ -145,6 +145,12 @@ export default (
     <span className="icon icon--share">
       Text for a11y and SEO purposes.
     </span>
+    <span className="icon icon--economist">
+      Text for a11y and SEO purposes.
+    </span>
+    <span className="icon icon--economist-small">
+      Text for a11y and SEO purposes.
+    </span>
 
     <div style={{ background: '#333' }}>
       <span className="icon icon--facebook-london">
