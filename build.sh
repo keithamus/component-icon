@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 SSH_KEY=${1:-/root/.ssh/id_rsa_deploy}
 
