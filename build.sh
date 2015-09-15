@@ -8,7 +8,8 @@ exec docker run \
     mhart/alpine-node \
     /bin/sh -c "\
         cd /code && \
-        NPM_TOKEN=${NPM_TOKEN} npm i --unsafe-perm && \
+        printf \"@economist:registry=https://registry.npmjs.org/\n//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n\" > /root/.npmrc && \
+        npm i --unsafe-perm --verbose && \
         SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} npm t && \
         { [[ \"$(git rev-parse --abbrev-ref HEAD)\" == \"master\" ]] && npm run pages; } \
     ";
