@@ -11,7 +11,7 @@ exec docker run \
     sublimino/node4-base \
     /bin/sh -cx "\
         cd /code && \
-        umask 002 && \
+        umask 000 && \
         printf \"@economist:registry=https://registry.npmjs.org/\n//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n\" > ~/.npmrc && \
         npm i && \
         echo SAUCE_USER=sublimino SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} npm t && \
