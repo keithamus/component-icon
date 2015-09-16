@@ -16,7 +16,7 @@ exec docker run \
         npm i --unsafe-perm --verbose && \
         echo SAUCE_USER=sublimino SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} npm t && \
         { git config --global user.email 'ecprod@economist.com'; git config --global user.name 'GoCD'; true; } && \
-        { [ \"$(git rev-parse --abbrev-ref HEAD)\" = \"master\" ] && npm run pages; } \
+        { [ \"$(git rev-parse --abbrev-ref HEAD)\" = \"master\" ] && npm run pages; } ; \
         echo 'Build finished' \
     ";
 
