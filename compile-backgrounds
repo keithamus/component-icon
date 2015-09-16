@@ -58,4 +58,3 @@ files.forEach(function(iname) {
   console.log('Writing', outName)
   fs.writeFileSync(outName, css)
 });
-
