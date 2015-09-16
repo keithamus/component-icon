@@ -482,7 +482,7 @@ body {
   <body>
     <h1 class="component-title">
       @economist/component-icon
-      <span>(v3.2.3)</span>
+      <span>(v3.2.5)</span>
     </h1>
     <div id="component-preview">
       [object Object]
@@ -514,33 +514,13 @@ body {
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"facebook"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"twitter"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"googleplus"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"linkedin"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"whatsapp"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"mail"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"rss"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"down"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"up"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"right"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"left"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"close"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"worldif"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"home"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"hamburger"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"user"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"magnifier"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"share"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"economist-small"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"economist"</span>/&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-title">br</span> /&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"facebook"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
-      <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
-    /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"twitter"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
+    {Icon.options.icon.map((iconType) =&gt; {
+      return <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">{iconType}</span> /&gt;</span>;</span>
+    })}
+    &lt;Icon className=<span class="hljs-string">"rounded"</span> icon=<span class="hljs-string">"facebook"</span> color=<span class="hljs-string">"white"</span>
+      background=<span class="hljs-string">"black"</span>
+    /&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"twitter"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
       <span class="hljs-attribute">background</span>=<span class="hljs-value">"black"</span>
     /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">Icon</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"rounded"</span> <span class="hljs-attribute">icon</span>=<span class="hljs-value">"googleplus"</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"white"</span>
@@ -18978,23 +18958,13 @@ Library.prototype.test = function(obj, type) {
         s += " }";
         return s;
       };
-
-    /**
-     * # proxy.reset (function)
-     *
-     * Resets __spy object parameters for instantiation and reuse
-     * @returns proxy spy object
-     */
-      proxy.reset = function() {
-        this.__spy = {
+      proxy.__spy = {
           calls: []
-          , called: false
-          , name: name
-        };
-        return this;
-      }
+        , called: false
+        , name: name
+      };
 
-      return proxy.reset();
+      return proxy;
     }
 
     /**

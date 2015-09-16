@@ -4,7 +4,7 @@ export default class Icon extends React.Component {
 
   static get propTypes() {
     return {
-      icon: React.PropTypes.string.isRequired,
+      icon: React.PropTypes.oneOf(Icon.options.icon).isRequired,
       background: React.PropTypes.string,
       color: React.PropTypes.string,
       size: React.PropTypes.string,
@@ -30,6 +30,33 @@ export default class Icon extends React.Component {
       this.props.className !== nextProps.className ||
       this.props.uri !== nextProps.uri
     );
+  }
+
+  static get options() {
+    return {
+      icon: [
+        'facebook',
+        'twitter',
+        'googleplus',
+        'linkedin',
+        'whatsapp',
+        'mail',
+        'rss',
+        'down',
+        'up',
+        'right',
+        'left',
+        'close',
+        'worldif',
+        'home',
+        'hamburger',
+        'user',
+        'magnifier',
+        'share',
+        'economist-small',
+        'economist',
+      ],
+    };
   }
 
   render() {
