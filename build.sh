@@ -13,10 +13,12 @@ exec docker run \
         apt-get update && apt-get install -y git python2.7 && \
         printf \"@economist:registry=https://registry.npmjs.org/\n//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n\" > /root/.npmrc && \
         cd /code && \
-        npm i --unsafe-perm --verbose && \
+        npm i --unsafe-perm && \
         echo SAUCE_USER=sublimino SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} npm t && \
         { git config --global user.email 'ecprod@economist.com'; git config --global user.name 'GoCD'; true; } && \
-        { [ \"$(git rev-parse --abbrev-ref HEAD)\" = \"master\" ] && npm run pages; } ; \
-        echo 'Build finished' \
+        { [ \"$(git rev-parse --abbrev-ref HEAD)\" = \"master\" ] && { npm run pages; } || true; } ; \
+        RETURN_CODE=$?
+        echo 'Build finished with status \${RETURN_CODE}'; \
+        exit \${RETURN_CODE}
     ";
 
