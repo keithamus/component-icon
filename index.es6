@@ -65,7 +65,7 @@ export default class Icon extends React.Component {
       <svg
         role="img"
         aria-labelledby="title desc"
-        className={`Icon Icon-${this.props.icon} ${this.props.className}`}
+        className={`Icon Icon-${this.props.icon} ${this.props.className || ''}`}
         width={this.props.size}
         height={this.props.size}
         fill={this.props.color}
