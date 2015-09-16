@@ -27,7 +27,7 @@ export default (
     })}
 
     <div style={{ background: '#333' }}>
-    <p>Icons in a background-image</p>
+      <p>Icons in a background-image</p>
       {Icon.options.icon.map((iconType) => {
         const className = `icon icon--${iconType}-london`;
         return (
