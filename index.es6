@@ -64,7 +64,7 @@ export default class Icon extends React.Component {
     return (
       <svg
         role="img"
-        aria-labelledby="title desc"
+        aria-labelledby="title"
         className={`Icon Icon-${this.props.icon} ${this.props.className || ''}`}
         width={this.props.size}
         height={this.props.size}
@@ -75,8 +75,7 @@ export default class Icon extends React.Component {
         dangerouslySetInnerHTML={{
           // use string literals here to avoid extraneous newlinw chars
           '__html':
-            '<title id="title">Icon</title>' +
-            `<desc id="desc">${this.props.icon}</desc>` +
+            `<title id="title">${this.props.icon} icon</title>` +
             '<use ' +
             'xmlns:xlink="http://www.w3.org/1999/xlink" ' +
             `xlink:href="${this.props.uri}#${this.props.icon}"` +
