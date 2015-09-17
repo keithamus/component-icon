@@ -16,8 +16,7 @@ describe('Icon', () => {
   });
   it('Has aria role and labelledby attributes', () => {
     renderedIcon.props.role.should.eql('img');
-    renderedIcon.props['aria-labelledby'].should.eql('title desc');
-    renderedIcon.props.dangerouslySetInnerHTML.__html.should.match(/<title id="title">Icon/i);
-    renderedIcon.props.dangerouslySetInnerHTML.__html.should.match(/<desc id="desc">facebook/i);
+    renderedIcon.props['aria-labelledby'].should.eql('title');
+    renderedIcon.props.dangerouslySetInnerHTML.__html.should.match(/<title id="title">facebook icon/i);
   });
 });
