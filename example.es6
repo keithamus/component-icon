@@ -6,7 +6,7 @@ const base = typeof window === 'object' ? window.location.pathname : '/';
 const svgUri = base + 'assets/icons.svg';
 
 export default (
-  <Tabs>
+  <Tabs className="library--example-tabs">
     <Tabs.Panel title="Default version">
       {Icon.options.icon.map((iconType) => {
         const key = `default--${iconType}`;
