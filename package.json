@@ -135,7 +135,8 @@
     "chai": "^3.2.0",
     "postcss": "^4.0.0",
     "postcss-svg": "fabiosantoscode/postcss-svg#feature/fix-dot-template",
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "react-simpletabs": "^0.7.0"
   },
   "devDependencies": {
     "@economist/component-devpack": "^3.3.1",
