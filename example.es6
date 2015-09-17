@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './index.es6';
+import Icon from './';
 import Tabs from 'react-simpletabs';
 
 const base = typeof window === 'object' ? window.location.pathname : '/';
