@@ -1,18 +1,21 @@
 import React from 'react';
 import Icon from './index.es6';
 
+const base = location.path;
+const svgUri = base + '/assets/icons.svg';
+
 export default (
   <div>
     <p>Default version</p>
     {Icon.options.icon.map((iconType) => {
       const key = `default--${iconType}`;
-      return <Icon icon={iconType} key={key} />;
+      return <Icon icon={iconType} uri={svgUri} key={key} />;
     })}
     <p>Rounded version</p>
     {Icon.options.icon.map((iconType) => {
       const key = `rounded--${iconType}`;
       return (
-          <Icon icon={iconType} className="rounded" color="white"
+          <Icon icon={iconType} uri={svgUri} className="rounded" color="white"
             background="black" key={key}
           />);
     })
