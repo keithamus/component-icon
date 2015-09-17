@@ -1,8 +1,8 @@
 import React from 'react';
 import Icon from './index.es6';
 
-const base = location.path;
-const svgUri = base + '/assets/icons.svg';
+const base = typeof window === 'object' ? window.location.pathname : '/';
+const svgUri = base + 'assets/icons.svg';
 
 export default (
   <div>
