@@ -2,8 +2,22 @@ import React from 'react';
 import Icon from './';
 import Tabs from 'react-simpletabs';
 
-const base = typeof window === 'object' ? window.location.pathname : '/';
-const svgUri = base + 'assets/icons.svg';
+import { dirname } from 'path';
+
+const base = typeof window === 'object' ? window.location.pathname : '';
+let pathPrefix;
+
+if (base === '/') {
+  pathPrefix = '';
+} else if (/\/$/.test(base)) {
+  pathPrefix = base;
+} else if (base) {
+  pathPrefix = dirname(base);
+} else {
+  pathPrefix = '';
+}
+
+const svgUri = pathPrefix + '/assets/icons.svg';
 
 export default (
   <Tabs className="library--example-tabs">
