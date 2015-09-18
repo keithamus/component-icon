@@ -5,8 +5,17 @@ import Tabs from 'react-simpletabs';
 import { dirname } from 'path';
 
 const base = typeof window === 'object' ? window.location.pathname : '';
-const pathPrefix = (base ? dirname(base) : '/');
-const svgUri = pathPrefix + 'assets/icons.svg';
+let pathPrefix;
+
+if (/\/$/.test(base)) {
+  pathPrefix = base;
+} else if (base) {
+  pathPrefix = dirname(base);
+} else {
+  pathPrefix = '';
+}
+
+const svgUri = pathPrefix + '/assets/icons.svg';
 
 export default (
   <Tabs className="library--example-tabs">
