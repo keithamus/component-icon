@@ -7,7 +7,9 @@ import { dirname } from 'path';
 const base = typeof window === 'object' ? window.location.pathname : '';
 let pathPrefix;
 
-if (/\/$/.test(base)) {
+if (base === '/') {
+  pathPrefix = '';
+} else if (/\/$/.test(base)) {
   pathPrefix = base;
 } else if (base) {
   pathPrefix = dirname(base);
