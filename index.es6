@@ -66,27 +66,32 @@ export default class Icon extends React.Component {
 
   render() {
     /* eslint "react/no-danger": 0 */
-    return (
-      <svg
-        role="img"
-        aria-labelledby="title"
-        className={`Icon Icon-${this.props.icon} ${this.props.className || ''}`}
-        width={this.props.size}
-        height={this.props.size}
-        fill={this.props.color}
-        style={{
-          background: this.props.background,
-        }}
-        dangerouslySetInnerHTML={{
-          // use string literals here to avoid extraneous newlinw chars
-          '__html':
-            `<title id="title">${this.props.icon} icon</title>` +
-            '<use ' +
-            'xmlns:xlink="http://www.w3.org/1999/xlink" ' +
-            `xlink:href="${this.props.uri}#${this.props.icon}"` +
-          '></use>',
-        }}
-      />
-    );
+    const props = {
+      role: 'img',
+      'aria-labelledby': 'title',
+      className: `Icon Icon-${this.props.icon}`,
+      dangerouslySetInnerHTML: {
+        // use string literals here to avoid extraneous newlinw chars
+        '__html':
+          `<title id="title">${this.props.icon} icon</title>` +
+          '<use ' +
+          'xmlns:xlink="http://www.w3.org/1999/xlink" ' +
+          `xlink:href="${this.props.uri}#${this.props.icon}"` +
+        '></use>',
+      },
+    };
+    if (this.props.color) {
+      props.fill = this.props.color;
+    }
+    if (this.props.size) {
+      props.width = props.height = this.props.size;
+    }
+    if (this.props.className) {
+      props.className += ` ${this.props.className}`;
+    }
+    if (this.props.background) {
+      props.style = { background: this.props.background };
+    }
+    return (<svg {...props}/>);
   }
 }
