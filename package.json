@@ -169,6 +169,7 @@
     "postcss": "^4.0.0",
     "postcss-svg": "fabiosantoscode/postcss-svg#feature/fix-dot-template",
     "pre-commit": "^1.0.10",
+    "react": "^0.13.3",
     "react-simpletabs": "^0.7.0",
     "svg-sprite": "^1.2.5",
     "svg4everybody": "^2.0.0",
