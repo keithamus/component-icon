@@ -2,6 +2,8 @@
 
 SSH_KEY="${1:-/root/.ssh/id_rsa}"
 DOCKER_IMAGE="economistprod/node4-base"
+HOST_IP=$(ip route get 1 | awk '{print $NF;exit}')
+SINOPIA_URL="http://${HOST_IP}:4873"
 
 [[ ${NPM_TOKEN:-} = '' ]] && { echo "NPM_TOKEN empty"; exit 1; }
 [[ ${SAUCE_ACCESS_KEY:-} = '' ]] && { echo "SAUCE_ACCESS_KEY empty"; exit 2; }
@@ -17,7 +19,7 @@ exec docker run \
         cd /code && \
         umask 000 && \
         printf \"@economist:registry=https://registry.npmjs.org/\n//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n\" > ~/.npmrc && \
-        (curl -I http://localhost:4873 --max-time 5 && npm set registry http://localhost:4873/ && echo 'Using sinopia cache registry available on localhost:4873' || true) && \
+        (curl -I ${SINOPIA_URL} --max-time 5 && npm set registry ${SINOPIA_URL} && echo \"Using sinopia cache registry available on ${SINOPIA_URL}\" || true) && \
         NODE_ENV=test npm i && \
         echo SAUCE_USER=sublimino SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} npm t && \
         { git config --global user.email 'ecprod@economist.com'; git config --global user.name 'GoCD'; true; } && \
