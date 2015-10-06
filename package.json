@@ -1,6 +1,6 @@
 {
   "name": "@economist/component-icon",
-  "version": "3.6.4",
+  "version": "3.6.5",
   "description": "Provides SVG icons images, and classes with SVG background-images.",
   "author": "The Economist (http://economist.com)",
   "license": "ISC",
@@ -169,7 +169,6 @@
     "postcss-svg": "fabiosantoscode/postcss-svg#feature/fix-dot-template",
     "pre-commit": "^1.0.10",
     "react": "^0.14.0-rc",
-    "react-simpletabs": "pedronauck/react-simpletabs",
     "svg-sprite": "^1.2.5",
     "svg4everybody": "^2.0.0",
     "svgo": "^0.5.3",

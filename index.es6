@@ -66,6 +66,16 @@ export default class Icon extends React.Component {
 
   render() {
     /* eslint "react/no-danger": 0 */
+    let width = '';
+    // Change ratio for The Economist original logo
+    switch (this.props.icon) {
+      case 'economist':
+        width = `${ this.props.size.replace('px', '') * 2 }px`;
+        break;
+      default:
+        width = this.props.size;
+        break;
+    }
     const props = {
       role: 'img',
       'aria-labelledby': 'title',
@@ -84,7 +94,8 @@ export default class Icon extends React.Component {
       props.fill = this.props.color;
     }
     if (this.props.size) {
-      props.width = props.height = this.props.size;
+      props.width = width;
+      props.height = this.props.size;
     }
     if (this.props.className) {
       props.className += ` ${this.props.className}`;
