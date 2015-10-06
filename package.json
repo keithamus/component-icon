@@ -79,9 +79,6 @@
       },
       {
         "contents": "if(document.getElementById('mocha')){mocha.checkLeaks();mocha.run();}"
-      },
-      {
-        "contents": "svg4everybody();if(window.console)console.log('SVG4everybody was run right now ');"
       }
     ],
     "sections": [
