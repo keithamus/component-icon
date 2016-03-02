@@ -14,6 +14,7 @@
 code[class*&#x3D;&quot;language-&quot;],
 pre[class*&#x3D;&quot;language-&quot;] {
 	color: black;
+	background: none;
 	text-shadow: 0 1px white;
 	font-family: Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;
 	direction: ltr;
@@ -69,6 +70,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
 :not(pre) &gt; code[class*&#x3D;&quot;language-&quot;] {
 	padding: .1em;
 	border-radius: .3em;
+	white-space: normal;
 }
 
 .token.comment,
@@ -194,8 +196,8 @@ pre[class*&#x3D;&quot;language-&quot;] {
   </head>
   <body>
         <h1 class="component-title">
-      
-      <span>(v)</span>
+      @economist/component-icon
+      <span>(v5.9.1)</span>
     </h1>
     <div id="component-preview">
       <script>
@@ -206,17 +208,28 @@ pre[class*&#x3D;&quot;language-&quot;] {
     </div>
     <div class="component-panel">
       <h2 id="readme" class="component-panel-heading"><a href="#readme">Readme</a></h2>
-          <h1>component-icon</h1>
-    <p>React component that provides SVG icons from a hardcoded set</p>
-    <p>Includes a set of CSS backgrounds for rendering SVG, and color variations.</p>
-    <h1>How to use the CSS backgrounds</h1>
+          <h1>Icon</h1>
+    <blockquote>
+    <p>Provides SVG icons images, and classes with SVG background-images.</p>
+    </blockquote>
+    <h2>Usage</h2>
+    <h3>How to use the CSS backgrounds</h3>
     <p>To use this you need to add <code>@import &quot;@economist/component-icon&quot;;</code> and <code>@import &quot;@economist/component-icon/backgrounds/ICONNAME.css&quot;;</code> to your postCSS.</p>
     <p>Then, use the<code>.icon .icon--ICONNAME</code> classes on any element.</p>
-    <h2>How to use the color variations?</h2>
+    <h3>How to use the color variations?</h3>
     <p>By default, the background icons are black.</p>
     <p>To use a color variation, add <code>-COLORNAME</code> to the class name. For example, <code>icon icon-facebook</code> would become <code>icon icon-facebook-london</code>. If that color variation is not there (we don't want to add them all at once!), you need to change this project and publish it again with the new color there.</p>
-    <h2>I'm a developer. How do I add more colors?</h2>
+    <h2>Install</h2>
+    <pre><code class="lang-bash">npm i -S @economist/component-icon
+    </code></pre>
+    <h2>Run tests</h2>
+    <pre><code class="lang-bash">npm test
+    </code></pre>
+    <h2>FAQ</h2>
+    <h3>I'm a developer. How do I add more colors?</h3>
     <p>Have a look at color-variations.json. Then, run the compile-backgrounds script to update the <code>backgrounds/*</code> file.</p>
+    <h3>I'm a designer. How do I export a Sketch file to the icons properly?</h3>
+    <p>.svg exported from Sketch worked only after removing sketch:type=&quot;MSShapeGroup&quot; attribute. Also, remember there should be no grouped elements in your asset.</p>
     <h2>Why do I have to import the color variation from the same file as the original icon?</h2>
     <p>(technical explanation)</p>
     <p>It doesn't make the CSS heavier this way.</p>
@@ -227,8 +240,8 @@ pre[class*&#x3D;&quot;language-&quot;] {
     </div>
     <div class="component-panel">
       <h2 id="example" class="component-panel-heading"><a href="#example">Example</a></h2>
-      <pre><code>    <span class="token keyword" >import</span> React <span class="token keyword" >from</span> <span class="token string" >'react'</span><span class="token punctuation" >;</span>
-    <span class="token keyword" >import</span> Icon <span class="token keyword" >from</span> <span class="token string" >'./'</span><span class="token punctuation" >;</span>
+      <pre><code>    <span class="token keyword" >import</span> Icon <span class="token keyword" >from</span> <span class="token string" >'./'</span><span class="token punctuation" >;</span>
+    <span class="token keyword" >import</span> React <span class="token keyword" >from</span> <span class="token string" >'react'</span><span class="token punctuation" >;</span>
     
     <span class="token keyword" >import</span> <span class="token punctuation" >{</span> dirname <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'path'</span><span class="token punctuation" >;</span>
     <span class="token comment" spellcheck="true">/* global window */</span>
@@ -244,24 +257,25 @@ pre[class*&#x3D;&quot;language-&quot;] {
       pathPrefix <span class="token operator" >=</span> <span class="token string" >''</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span>
     
-    <span class="token keyword" >const</span> svgUri <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span>pathPrefix<span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >/assets/icons.svg`</span></span><span class="token punctuation" >;</span>
+    <span class="token keyword" >const</span> svgUri <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span> pathPrefix <span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >/assets/icons.svg`</span></span><span class="token punctuation" >;</span>
     <span class="token keyword" >export</span> <span class="token keyword" >default</span> <span class="token punctuation" >(</span>
       <span class="token operator" >&lt;</span>div className<span class="token operator" >=</span><span class="token string" >"example"</span><span class="token operator" >></span>
        <span class="token operator" >&lt;</span>p<span class="token operator" >></span>Default version<span class="token operator" >&lt;</span><span class="token operator" >/</span>p<span class="token operator" >></span>
         <span class="token operator" >&lt;</span>div<span class="token operator" >></span>
           <span class="token punctuation" >{</span>Icon<span class="token punctuation" >.</span>options<span class="token punctuation" >.</span>icon<span class="token punctuation" >.</span><span class="token function" >map</span><span class="token punctuation" >(</span><span class="token punctuation" >(</span>iconType<span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
-            <span class="token keyword" >const</span> key <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`default--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span>iconType<span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >`</span></span><span class="token punctuation" >;</span>
+            <span class="token keyword" >const</span> key <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`default--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span> iconType <span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >`</span></span><span class="token punctuation" >;</span>
             <span class="token keyword" >return</span> <span class="token operator" >&lt;</span>Icon icon<span class="token operator" >=</span><span class="token punctuation" >{</span>iconType<span class="token punctuation" >}</span> uri<span class="token operator" >=</span><span class="token punctuation" >{</span>svgUri<span class="token punctuation" >}</span> key<span class="token operator" >=</span><span class="token punctuation" >{</span>key<span class="token punctuation" >}</span> <span class="token operator" >/</span><span class="token operator" >></span><span class="token punctuation" >;</span>
           <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span>
         <span class="token operator" >&lt;</span><span class="token operator" >/</span>div<span class="token operator" >></span>
         <span class="token operator" >&lt;</span>p<span class="token operator" >></span>Rounded<span class="token operator" >&lt;</span><span class="token operator" >/</span>p<span class="token operator" >></span>
         <span class="token operator" >&lt;</span>div<span class="token operator" >></span>
           <span class="token punctuation" >{</span>Icon<span class="token punctuation" >.</span>options<span class="token punctuation" >.</span>icon<span class="token punctuation" >.</span><span class="token function" >map</span><span class="token punctuation" >(</span><span class="token punctuation" >(</span>iconType<span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
-            <span class="token keyword" >const</span> key <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`rounded--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span>iconType<span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >`</span></span><span class="token punctuation" >;</span>
+            <span class="token keyword" >const</span> key <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`rounded--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span> iconType <span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >`</span></span><span class="token punctuation" >;</span>
             <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
-                <span class="token operator" >&lt;</span>Icon icon<span class="token operator" >=</span><span class="token punctuation" >{</span>iconType<span class="token punctuation" >}</span> uri<span class="token operator" >=</span><span class="token punctuation" >{</span>svgUri<span class="token punctuation" >}</span> className<span class="token operator" >=</span><span class="token string" >"rounded"</span>
+                <span class="token operator" >&lt;</span>Icon icon<span class="token operator" >=</span><span class="token punctuation" >{</span>iconType<span class="token punctuation" >}</span> uri<span class="token operator" >=</span><span class="token punctuation" >{</span>svgUri<span class="token punctuation" >}</span>
                   color<span class="token operator" >=</span><span class="token string" >"white"</span>
                   background<span class="token operator" >=</span><span class="token string" >"black"</span> key<span class="token operator" >=</span><span class="token punctuation" >{</span>key<span class="token punctuation" >}</span>
+                  rounded
                 <span class="token operator" >/</span><span class="token operator" >></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
           <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
           <span class="token punctuation" >}</span>
@@ -269,7 +283,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
         <span class="token operator" >&lt;</span>p<span class="token operator" >></span>Icons <span class="token keyword" >in</span> a background<span class="token operator" >-</span>image<span class="token operator" >&lt;</span><span class="token operator" >/</span>p<span class="token operator" >></span>
         <span class="token operator" >&lt;</span>div<span class="token operator" >></span>
           <span class="token punctuation" >{</span>Icon<span class="token punctuation" >.</span>options<span class="token punctuation" >.</span>icon<span class="token punctuation" >.</span><span class="token function" >map</span><span class="token punctuation" >(</span><span class="token punctuation" >(</span>iconType<span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
-            <span class="token keyword" >const</span> className <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`icon icon--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span>iconType<span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >`</span></span><span class="token punctuation" >;</span>
+            <span class="token keyword" >const</span> className <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`icon icon--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span> iconType <span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >`</span></span><span class="token punctuation" >;</span>
             <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
                 <span class="token operator" >&lt;</span>span className<span class="token operator" >=</span><span class="token punctuation" >{</span>className<span class="token punctuation" >}</span> key<span class="token operator" >=</span><span class="token punctuation" >{</span>className<span class="token punctuation" >}</span><span class="token operator" >></span>
                   Text <span class="token keyword" >for</span> a11y and SEO purposes<span class="token punctuation" >.</span>
@@ -279,13 +293,27 @@ pre[class*&#x3D;&quot;language-&quot;] {
         <span class="token operator" >&lt;</span>p<span class="token operator" >></span>Icons <span class="token keyword" >in</span> a background<span class="token operator" >-</span>image <span class="token punctuation" >(</span>london color<span class="token punctuation" >)</span><span class="token operator" >&lt;</span><span class="token operator" >/</span>p<span class="token operator" >></span>
         <span class="token operator" >&lt;</span>div style<span class="token operator" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> background<span class="token punctuation" >:</span> <span class="token string" >'#333'</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span><span class="token operator" >></span>
           <span class="token punctuation" >{</span>Icon<span class="token punctuation" >.</span>options<span class="token punctuation" >.</span>icon<span class="token punctuation" >.</span><span class="token function" >map</span><span class="token punctuation" >(</span><span class="token punctuation" >(</span>iconType<span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
-            <span class="token keyword" >const</span> className <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`icon icon--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span>iconType<span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >-london`</span></span><span class="token punctuation" >;</span>
+            <span class="token keyword" >const</span> className <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`icon icon--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span> iconType <span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >-london`</span></span><span class="token punctuation" >;</span>
             <span class="token keyword" >if</span> <span class="token punctuation" >(</span>iconType <span class="token operator" >!==</span> <span class="token string" >'economist'</span> <span class="token operator" >&amp;&amp;</span> iconType <span class="token operator" >!==</span> <span class="token string" >'economist-small'</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
               <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
                    <span class="token operator" >&lt;</span>span className<span class="token operator" >=</span><span class="token punctuation" >{</span>className<span class="token punctuation" >}</span> key<span class="token operator" >=</span><span class="token punctuation" >{</span>className<span class="token punctuation" >}</span><span class="token operator" >></span>
                      Text <span class="token keyword" >for</span> a11y and SEO purposes<span class="token punctuation" >.</span>
                    <span class="token operator" >&lt;</span><span class="token operator" >/</span>span<span class="token operator" >></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
             <span class="token punctuation" >}</span>
+            <span class="token keyword" >return</span> <span class="token keyword" >null</span><span class="token punctuation" >;</span>
+          <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span>
+        <span class="token operator" >&lt;</span><span class="token operator" >/</span>div<span class="token operator" >></span>
+        <span class="token operator" >&lt;</span>p<span class="token operator" >></span>Icons <span class="token keyword" >in</span> a background<span class="token operator" >-</span>image <span class="token punctuation" >(</span>chicago color<span class="token punctuation" >)</span><span class="token operator" >&lt;</span><span class="token operator" >/</span>p<span class="token operator" >></span>
+        <span class="token operator" >&lt;</span>div style<span class="token operator" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> background<span class="token punctuation" >:</span> <span class="token string" >'#333'</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span><span class="token operator" >></span>
+          <span class="token punctuation" >{</span>Icon<span class="token punctuation" >.</span>options<span class="token punctuation" >.</span>icon<span class="token punctuation" >.</span><span class="token function" >map</span><span class="token punctuation" >(</span><span class="token punctuation" >(</span>iconType<span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
+            <span class="token keyword" >const</span> className <span class="token operator" >=</span> <span class="token template-string" ><span class="token string" >`icon icon--</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span> iconType <span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >-chicago`</span></span><span class="token punctuation" >;</span>
+            <span class="token keyword" >if</span> <span class="token punctuation" >(</span>iconType <span class="token operator" >!==</span> <span class="token string" >'economist'</span> <span class="token operator" >&amp;&amp;</span> iconType <span class="token operator" >!==</span> <span class="token string" >'economist-small'</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+              <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+                   <span class="token operator" >&lt;</span>span className<span class="token operator" >=</span><span class="token punctuation" >{</span>className<span class="token punctuation" >}</span> key<span class="token operator" >=</span><span class="token punctuation" >{</span>className<span class="token punctuation" >}</span><span class="token operator" >></span>
+                     Text <span class="token keyword" >for</span> a11y and SEO purposes<span class="token punctuation" >.</span>
+                   <span class="token operator" >&lt;</span><span class="token operator" >/</span>span<span class="token operator" >></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+            <span class="token punctuation" >}</span>
+            <span class="token keyword" >return</span> <span class="token keyword" >null</span><span class="token punctuation" >;</span>
           <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span>
         <span class="token operator" >&lt;</span><span class="token operator" >/</span>div<span class="token operator" >></span>
       <span class="token operator" >&lt;</span><span class="token operator" >/</span>div<span class="token operator" >></span>
@@ -1022,6 +1050,21 @@ pre[class*&#x3D;&quot;language-&quot;] {
     };
     
     /**
+     * Allow a number of retries on failed tests
+     *
+     * @api private
+     * @param {number} n
+     * @return {Context} self
+     */
+    Context.prototype.retries = function(n) {
+      if (!arguments.length) {
+        return this.runnable().retries();
+      }
+      this.runnable().retries(n);
+      return this;
+    };
+    
+    /**
      * Inspect the context void of `._runnable`.
      *
      * @api private
@@ -1161,7 +1204,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
          * acting as a thunk.
          */
     
-        context.it = context.specify = function(title, fn) {
+        var it = context.it = context.specify = function(title, fn) {
           var suite = suites[0];
           if (suite.pending) {
             fn = null;
@@ -1177,7 +1220,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
          */
     
         context.it.only = function(title, fn) {
-          var test = context.it(title, fn);
+          var test = it(title, fn);
           var reString = '^' + escapeRe(test.fullTitle()) + '$';
           mocha.grep(new RegExp(reString));
           return test;
@@ -1189,6 +1232,13 @@ pre[class*&#x3D;&quot;language-&quot;] {
     
         context.xit = context.xspecify = context.it.skip = function(title) {
           context.it(title);
+        };
+    
+        /**
+         * Number of attempts to retry.
+         */
+        context.it.retries = function(n) {
+          context.retries(n);
         };
       });
     };
@@ -1266,6 +1316,15 @@ pre[class*&#x3D;&quot;language-&quot;] {
            */
           skip: function(title) {
             context.test(title);
+          },
+    
+          /**
+           * Number of retry attempts
+           *
+           * @param {string} n
+           */
+          retries: function(n) {
+            context.retries(n);
           }
         }
       };
@@ -1327,7 +1386,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
           } else {
             suite = Suite.create(suites[0], key);
             suites.unshift(suite);
-            visit(obj[key]);
+            visit(obj[key], file);
             suites.shift();
           }
         }
@@ -1432,6 +1491,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
         };
     
         context.test.skip = common.test.skip;
+        context.test.retries = common.test.retries;
       });
     };
     
@@ -1539,6 +1599,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
         };
     
         context.test.skip = common.test.skip;
+        context.test.retries = common.test.retries;
       });
     };
     
@@ -1608,6 +1669,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
      *   - `reporter` reporter instance, defaults to `mocha.reporters.spec`
      *   - `globals` array of accepted globals
      *   - `timeout` timeout in milliseconds
+     *   - `retries` number of times to retry failed tests
      *   - `bail` bail on the first test failure
      *   - `slow` milliseconds to wait before considering a test slow
      *   - `ignoreLeaks` ignore global leaks
@@ -1633,6 +1695,9 @@ pre[class*&#x3D;&quot;language-&quot;] {
       this.reporter(options.reporter, options.reporterOptions);
       if (typeof options.timeout !== 'undefined' && options.timeout !== null) {
         this.timeout(options.timeout);
+      }
+      if (typeof options.retries !== 'undefined' && options.retries !== null) {
+        this.retries(options.retries);
       }
       this.useColors(options.useColors);
       if (options.enableTimeouts !== null) {
@@ -1755,14 +1820,13 @@ pre[class*&#x3D;&quot;language-&quot;] {
     Mocha.prototype.loadFiles = function(fn) {
       var self = this;
       var suite = this.suite;
-      var pending = this.files.length;
       this.files.forEach(function(file) {
         file = path.resolve(file);
         suite.emit('pre-require', global, file, self);
         suite.emit('require', require(file), file, self);
         suite.emit('post-require', global, file, self);
-        --pending || (fn && fn());
       });
+      fn && fn();
     };
     
     /**
@@ -1915,6 +1979,18 @@ pre[class*&#x3D;&quot;language-&quot;] {
      */
     Mocha.prototype.timeout = function(timeout) {
       this.suite.timeout(timeout);
+      return this;
+    };
+    
+    /**
+     * Set the number of times to retry failed tests.
+     *
+     * @param {Number} retry times
+     * @return {Mocha}
+     * @api public
+     */
+    Mocha.prototype.retries = function(n) {
+      this.suite.retries(n);
       return this;
     };
     
@@ -2723,13 +2799,13 @@ pre[class*&#x3D;&quot;language-&quot;] {
     
       runner.on('pass', function(test) {
         console.log('%s  <dt>%s</dt>', indent(), utils.escape(test.title));
-        var code = utils.escape(utils.clean(test.fn.toString()));
+        var code = utils.escape(utils.clean(test.body));
         console.log('%s  <dd><pre><code>%s</code></pre></dd>', indent(), code);
       });
     
       runner.on('fail', function(test, err) {
         console.log('%s  <dt class="error">%s</dt>', indent(), utils.escape(test.title));
-        var code = utils.escape(utils.clean(test.fn.toString()));
+        var code = utils.escape(utils.clean(test.fn.body));
         console.log('%s  <dd class="error"><pre><code>%s</code></pre></dd>', indent(), code);
         console.log('%s  <dd class="error">%s</dd>', indent(), utils.escape(err));
       });
@@ -2998,7 +3074,10 @@ pre[class*&#x3D;&quot;language-&quot;] {
       });
     
       runner.on('fail', function(test) {
-        if (test.type === 'hook') {
+        // For type = 'test' its possible that the test failed due to multiple
+        // done() calls. So report the issue here.
+        if (test.type === 'hook'
+          || test.type === 'test') {
           runner.emit('test end', test);
         }
       });
@@ -3066,7 +3145,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
             pre.style.display = pre.style.display === 'none' ? 'block' : 'none';
           });
     
-          var pre = fragment('<pre><code>%e</code></pre>', utils.clean(test.fn.toString()));
+          var pre = fragment('<pre><code>%e</code></pre>', utils.clean(test.body));
           el.appendChild(pre);
           pre.style.display = 'none';
         }
@@ -3364,6 +3443,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
     function clean(test) {
       return {
         duration: test.duration,
+        currentRetry: test.currentRetry(),
         fullTitle: test.fullTitle(),
         title: test.title
       };
@@ -3428,7 +3508,8 @@ pre[class*&#x3D;&quot;language-&quot;] {
       return {
         title: test.title,
         fullTitle: test.fullTitle(),
-        duration: test.duration
+        duration: test.duration,
+        currentRetry: test.currentRetry()
       };
     }
     
@@ -3506,6 +3587,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
         title: test.title,
         fullTitle: test.fullTitle(),
         duration: test.duration,
+        currentRetry: test.currentRetry(),
         err: errorJSON(test.err || {})
       };
     }
@@ -3773,7 +3855,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
       });
     
       runner.on('pass', function(test) {
-        var code = utils.clean(test.fn.toString());
+        var code = utils.clean(test.body);
         buf += test.title + '.\n';
         buf += '\n```js\n';
         buf += code + '\n';
@@ -4342,7 +4424,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
     }
     
     },{"./base":17}],34:[function(require,module,exports){
-    (function (global){
+    (function (process,global){
     /**
      * Module dependencies.
      */
@@ -4352,6 +4434,8 @@ pre[class*&#x3D;&quot;language-&quot;] {
     var inherits = utils.inherits;
     var fs = require('fs');
     var escape = utils.escape;
+    var mkdirp = require('mkdirp');
+    var path = require('path');
     
     /**
      * Save timer references to avoid Sinon interfering (see GH-237).
@@ -4388,6 +4472,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
         if (!fs.createWriteStream) {
           throw new Error('file output not supported in browser');
         }
+        mkdirp.sync(path.dirname(options.reporterOptions.output));
         self.fileStream = fs.createWriteStream(options.reporterOptions.output);
       }
     
@@ -4451,6 +4536,8 @@ pre[class*&#x3D;&quot;language-&quot;] {
     XUnit.prototype.write = function(line) {
       if (this.fileStream) {
         this.fileStream.write(line + '\n');
+      } else if (typeof process === 'object' && process.stdout) {
+        process.stdout.write(line + '\n');
       } else {
         console.log(line);
       }
@@ -4513,8 +4600,8 @@ pre[class*&#x3D;&quot;language-&quot;] {
       return '<![CDATA[' + escape(str) + ']]>';
     }
     
-    }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-    },{"../utils":39,"./base":17,"fs":41}],35:[function(require,module,exports){
+    }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+    },{"../utils":39,"./base":17,"_process":51,"fs":41,"mkdirp":70,"path":41}],35:[function(require,module,exports){
     (function (global){
     /**
      * Module dependencies.
@@ -4570,6 +4657,8 @@ pre[class*&#x3D;&quot;language-&quot;] {
       this._enableTimeouts = true;
       this.timedOut = false;
       this._trace = new Error('done() called multiple times');
+      this._retries = -1;
+      this._currentRetry = 0;
     }
     
     /**
@@ -4647,6 +4736,30 @@ pre[class*&#x3D;&quot;language-&quot;] {
     };
     
     /**
+     * Set number of retries.
+     *
+     * @api private
+     */
+    Runnable.prototype.retries = function(n) {
+      if (!arguments.length) {
+        return this._retries;
+      }
+      this._retries = n;
+    };
+    
+    /**
+     * Get current retry
+     *
+     * @api private
+     */
+    Runnable.prototype.currentRetry = function(n) {
+      if (!arguments.length) {
+        return this._currentRetry;
+      }
+      this._currentRetry = n;
+    };
+    
+    /**
      * Return the full title generated by recursively concatenating the parent's
      * full title.
      *
@@ -4716,6 +4829,9 @@ pre[class*&#x3D;&quot;language-&quot;] {
      * @param {string[]} globals
      */
     Runnable.prototype.globals = function(globals) {
+      if (!arguments.length) {
+        return this._allowedGlobals;
+      }
       this._allowedGlobals = globals;
     };
     
@@ -4807,6 +4923,9 @@ pre[class*&#x3D;&quot;language-&quot;] {
           result
             .then(function() {
               done();
+              // Return null so libraries like bluebird do not warn about
+              // subsequently constructed Promises.
+              return null;
             },
             function(reason) {
               done(reason || new Error('Promise rejected with no or falsy reason'));
@@ -4857,6 +4976,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
     var stringify = utils.stringify;
     var type = utils.type;
     var undefinedError = utils.undefinedError;
+    var isArray = utils.isArray;
     
     /**
      * Non-enumerable globals.
@@ -5348,8 +5468,12 @@ pre[class*&#x3D;&quot;language-&quot;] {
           return;
         }
     
+        function parentPending(suite) {
+          return suite.pending || (suite.parent && parentPending(suite.parent));
+        }
+    
         // pending
-        if (test.pending) {
+        if (test.pending || parentPending(test.parent)) {
           self.emit('pending', test);
           self.emit('test end', test);
           return next();
@@ -5369,10 +5493,19 @@ pre[class*&#x3D;&quot;language-&quot;] {
           self.currentRunnable = self.test;
           self.runTest(function(err) {
             test = self.test;
-    
             if (err) {
+              var retry = test.currentRetry();
               if (err instanceof Pending) {
+                test.pending = true;
                 self.emit('pending', test);
+              } else if (retry < test.retries()) {
+                var clonedTest = test.clone();
+                clonedTest.currentRetry(retry + 1);
+                tests.unshift(clonedTest);
+    
+                // Early return + hook trigger so that it doesn't
+                // increment the count wrong
+                return self.hookUp('afterEach', next);
               } else {
                 self.fail(test, err);
               }
@@ -5463,6 +5596,10 @@ pre[class*&#x3D;&quot;language-&quot;] {
           // mark that the afterAll block has been called once
           // and so can be skipped if there is an error in it.
           afterAllHookCalled = true;
+    
+          // remove reference to test
+          delete self.test;
+    
           self.hook('afterAll', function() {
             self.emit('suite end', suite);
             fn(errSuite);
@@ -5550,6 +5687,44 @@ pre[class*&#x3D;&quot;language-&quot;] {
     };
     
     /**
+     * Cleans up the references to all the deferred functions
+     * (before/after/beforeEach/afterEach) and tests of a Suite.
+     * These must be deleted otherwise a memory leak can happen,
+     * as those functions may reference variables from closures,
+     * thus those variables can never be garbage collected as long
+     * as the deferred functions exist.
+     *
+     * @param {Suite} suite
+     */
+    function cleanSuiteReferences(suite) {
+      function cleanArrReferences(arr) {
+        for (var i = 0; i < arr.length; i++) {
+          delete arr[i].fn;
+        }
+      }
+    
+      if (isArray(suite._beforeAll)) {
+        cleanArrReferences(suite._beforeAll);
+      }
+    
+      if (isArray(suite._beforeEach)) {
+        cleanArrReferences(suite._beforeEach);
+      }
+    
+      if (isArray(suite._afterAll)) {
+        cleanArrReferences(suite._afterAll);
+      }
+    
+      if (isArray(suite._afterEach)) {
+        cleanArrReferences(suite._afterEach);
+      }
+    
+      for (var i = 0; i < suite.tests.length; i++) {
+        delete suite.tests[i].fn;
+      }
+    }
+    
+    /**
      * Run the root suite and invoke `fn(failures)`
      * on completion.
      *
@@ -5579,6 +5754,9 @@ pre[class*&#x3D;&quot;language-&quot;] {
       }
     
       debug('start');
+    
+      // references cleanup to avoid memory leaks
+      this.on('suite end', cleanSuiteReferences);
     
       // callback
       this.on('end', function() {
@@ -5745,6 +5923,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
       this._enableTimeouts = true;
       this._slow = 75;
       this._bail = false;
+      this._retries = -1;
       this.delayed = false;
     }
     
@@ -5764,6 +5943,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
       debug('clone');
       suite.ctx = this.ctx;
       suite.timeout(this.timeout());
+      suite.retries(this.retries());
       suite.enableTimeouts(this.enableTimeouts());
       suite.slow(this.slow());
       suite.bail(this.bail());
@@ -5789,6 +5969,22 @@ pre[class*&#x3D;&quot;language-&quot;] {
       }
       debug('timeout %d', ms);
       this._timeout = parseInt(ms, 10);
+      return this;
+    };
+    
+    /**
+     * Set number of times to retry a failed test.
+     *
+     * @api private
+     * @param {number|string} n
+     * @return {Suite|number} for chaining
+     */
+    Suite.prototype.retries = function(n) {
+      if (!arguments.length) {
+        return this._retries;
+      }
+      debug('retries %d', n);
+      this._retries = parseInt(n, 10) || 0;
       return this;
     };
     
@@ -5864,6 +6060,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
       var hook = new Hook(title, fn);
       hook.parent = this;
       hook.timeout(this.timeout());
+      hook.retries(this.retries());
       hook.enableTimeouts(this.enableTimeouts());
       hook.slow(this.slow());
       hook.ctx = this.ctx;
@@ -5893,6 +6090,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
       var hook = new Hook(title, fn);
       hook.parent = this;
       hook.timeout(this.timeout());
+      hook.retries(this.retries());
       hook.enableTimeouts(this.enableTimeouts());
       hook.slow(this.slow());
       hook.ctx = this.ctx;
@@ -5922,6 +6120,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
       var hook = new Hook(title, fn);
       hook.parent = this;
       hook.timeout(this.timeout());
+      hook.retries(this.retries());
       hook.enableTimeouts(this.enableTimeouts());
       hook.slow(this.slow());
       hook.ctx = this.ctx;
@@ -5951,6 +6150,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
       var hook = new Hook(title, fn);
       hook.parent = this;
       hook.timeout(this.timeout());
+      hook.retries(this.retries());
       hook.enableTimeouts(this.enableTimeouts());
       hook.slow(this.slow());
       hook.ctx = this.ctx;
@@ -5969,6 +6169,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
     Suite.prototype.addSuite = function(suite) {
       suite.parent = this;
       suite.timeout(this.timeout());
+      suite.retries(this.retries());
       suite.enableTimeouts(this.enableTimeouts());
       suite.slow(this.slow());
       suite.bail(this.bail());
@@ -5987,6 +6188,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
     Suite.prototype.addTest = function(test) {
       test.parent = this;
       test.timeout(this.timeout());
+      test.retries(this.retries());
       test.enableTimeouts(this.enableTimeouts());
       test.slow(this.slow());
       test.ctx = this.ctx;
@@ -6074,12 +6276,27 @@ pre[class*&#x3D;&quot;language-&quot;] {
       Runnable.call(this, title, fn);
       this.pending = !fn;
       this.type = 'test';
+      this.body = (fn || '').toString();
     }
     
     /**
      * Inherit from `Runnable.prototype`.
      */
     inherits(Test, Runnable);
+    
+    Test.prototype.clone = function() {
+      var test = new Test(this.title, this.fn);
+      test.timeout(this.timeout());
+      test.slow(this.slow());
+      test.enableTimeouts(this.enableTimeouts());
+      test.retries(this.retries());
+      test.currentRetry(this.currentRetry());
+      test.globals(this.globals());
+      test.parent = this.parent;
+      test.file = this.file;
+      test.ctx = this.ctx;
+      return test;
+    };
     
     },{"./runnable":35,"./utils":39}],39:[function(require,module,exports){
     (function (process,Buffer){
@@ -6272,6 +6489,8 @@ pre[class*&#x3D;&quot;language-&quot;] {
       return Object.prototype.toString.call(obj) === '[object Array]';
     };
     
+    exports.isArray = isArray;
+    
     /**
      * Buffer.prototype.toJSON polyfill.
      *
@@ -6346,7 +6565,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
     exports.clean = function(str) {
       str = str
         .replace(/\r\n?|[\n\u2028\u2029]/g, '\n').replace(/^\uFEFF/, '')
-        .replace(/^function *\(.*\)\s*{|\(.*\) *=> *{?/, '')
+        .replace(/^function *\(.*\)\s*\{|\(.*\) *=> *\{?/, '')
         .replace(/\s+\}$/, '');
     
       var spaces = str.match(/^\n?( *)/)[1].length;
@@ -6683,7 +6902,7 @@ pre[class*&#x3D;&quot;language-&quot;] {
           canonicalizedObj = value;
           break;
         default:
-          canonicalizedObj = value.toString();
+          canonicalizedObj = value + '';
       }
     
       return canonicalizedObj;
@@ -12852,6 +13071,108 @@ pre[class*&#x3D;&quot;language-&quot;] {
     
     }).call(this,require('_process'))
     },{"_process":51,"child_process":41,"fs":41,"os":50,"path":41}],70:[function(require,module,exports){
+    (function (process){
+    var path = require('path');
+    var fs = require('fs');
+    var _0777 = parseInt('0777', 8);
+    
+    module.exports = mkdirP.mkdirp = mkdirP.mkdirP = mkdirP;
+    
+    function mkdirP (p, opts, f, made) {
+        if (typeof opts === 'function') {
+            f = opts;
+            opts = {};
+        }
+        else if (!opts || typeof opts !== 'object') {
+            opts = { mode: opts };
+        }
+        
+        var mode = opts.mode;
+        var xfs = opts.fs || fs;
+        
+        if (mode === undefined) {
+            mode = _0777 & (~process.umask());
+        }
+        if (!made) made = null;
+        
+        var cb = f || function () {};
+        p = path.resolve(p);
+        
+        xfs.mkdir(p, mode, function (er) {
+            if (!er) {
+                made = made || p;
+                return cb(null, made);
+            }
+            switch (er.code) {
+                case 'ENOENT':
+                    mkdirP(path.dirname(p), opts, function (er, made) {
+                        if (er) cb(er, made);
+                        else mkdirP(p, opts, cb, made);
+                    });
+                    break;
+    
+                // In the case of any other error, just see if there's a dir
+                // there already.  If so, then hooray!  If not, then something
+                // is borked.
+                default:
+                    xfs.stat(p, function (er2, stat) {
+                        // if the stat fails, then that's super weird.
+                        // let the original error be the failure reason.
+                        if (er2 || !stat.isDirectory()) cb(er, made)
+                        else cb(null, made);
+                    });
+                    break;
+            }
+        });
+    }
+    
+    mkdirP.sync = function sync (p, opts, made) {
+        if (!opts || typeof opts !== 'object') {
+            opts = { mode: opts };
+        }
+        
+        var mode = opts.mode;
+        var xfs = opts.fs || fs;
+        
+        if (mode === undefined) {
+            mode = _0777 & (~process.umask());
+        }
+        if (!made) made = null;
+    
+        p = path.resolve(p);
+    
+        try {
+            xfs.mkdirSync(p, mode);
+            made = made || p;
+        }
+        catch (err0) {
+            switch (err0.code) {
+                case 'ENOENT' :
+                    made = sync(path.dirname(p), opts, made);
+                    sync(p, opts, made);
+                    break;
+    
+                // In the case of any other error, just see if there's a dir
+                // there already.  If so, then hooray!  If not, then something
+                // is borked.
+                default:
+                    var stat;
+                    try {
+                        stat = xfs.statSync(p);
+                    }
+                    catch (err1) {
+                        throw err0;
+                    }
+                    if (!stat.isDirectory()) throw err0;
+                    break;
+            }
+        }
+    
+        return made;
+    };
+    
+    }).call(this,require('_process'))
+    },{"_process":51,"fs":41,"path":41}],71:[function(require,module,exports){
     (function (process,global){
     /**
      * Shim process.stdout.
@@ -13012,11 +13333,11 @@ pre[class*&#x3D;&quot;language-&quot;] {
      * Expose mocha.
      */
     
-    window.Mocha = Mocha;
-    window.mocha = mocha;
+    global.Mocha = Mocha;
+    global.mocha = mocha;
     
     }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-    },{"../":1,"_process":51,"browser-stdout":40}]},{},[70]);
+    },{"../":1,"_process":51,"browser-stdout":40}]},{},[71]);
     
     mocha.setup('bdd');
     window.addEventListener('load', function () {
